@@ -1,0 +1,34 @@
+/* GSAP owns movement; CSS owns color, focus and the no-JS fallback. */
+@layer components {
+  [data-motion="gsap"] .button {
+    transition: background-color 160ms, border-color 160ms, box-shadow 160ms;
+  }
+  [data-motion="gsap"] .button:active { transform: none; }
+  [data-motion="gsap"] .button.primary:hover { box-shadow: 0 3px 10px #1769c222; }
+  [data-motion="gsap"] .sidebar nav { position: relative; }
+  [data-motion="gsap"] .nav-group { position: relative; }
+  [data-motion="gsap"] .icon-button,
+  [data-motion="gsap"] .sidebar-collapse {
+    transition: background-color 160ms, color 160ms;
+  }
+  [data-motion="gsap"] .sidebar-scrim { display: none; }
+}
+@layer responsive {
+  @media (min-width: 1025px) {
+    [data-motion="gsap"] .sidebar { overflow-x: clip; }
+    [data-motion="gsap"] .sidebar nav a > span { white-space: nowrap; }
+  }
+  @media (max-width: 767px) {
+    [data-motion="gsap"] .sidebar { transition: none; }
+    [data-motion="gsap"] .sidebar-scrim {
+      display: block;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    [data-motion="gsap"] .sidebar-scrim.is-open { pointer-events: auto; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-motion="gsap"] .button.primary:hover { box-shadow: none; }
+  }
+}

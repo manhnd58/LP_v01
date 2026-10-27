@@ -1,0 +1,14 @@
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import SiteEntry from '../components/landing/SiteEntry.jsx';
+import '../app/synera.css';
+import '../app/admin-layout.css';
+import '../app/motion.css';
+import '../app/line-sidebar.css';
+import '../app/stepper.css';
+import '../app/swipe-toast.css';
+import '../app/glide-select.css';
+import '../app/shipping-recommendation.css';
+import '../app/landing.css';
+import '../app/brand.css';
+createRoot(document.getElementById('root')).render(<SiteEntry />);
